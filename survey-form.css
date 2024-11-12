@@ -1,0 +1,122 @@
+body{
+  background-image: url(wallpaper.jpg);
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.topic{
+  text-align: center;
+  font-size: 45px;
+  color: rgba(221, 122, 221, 0.795);
+  margin-bottom: 8px;
+}
+
+.description{
+  text-align: center;
+  font-size: 20px;
+  color: wheat;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.container{
+  width: 500px;
+  height: 1380px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2px 2px 7px rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+}
+
+.survey-form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label{
+  display: block;
+  width: 80%;
+  margin-top: 30px;
+  font-size: 19px;
+}
+
+input[type="text"], input[type="email"], input[type="number"], input[type="password"], select{
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  height: 1.9rem;
+  border-radius: 4px;
+  border: none;
+  padding: 2px 2px 2px 10px;
+  font-size: 17px;
+}
+
+select{
+  width: 412px;
+}
+
+input[type="radio"], input[type="checkbox"]{
+  width: 20px;
+  height: 20px;
+  margin: 10px 10px 10px 0;
+  vertical-align: middle;
+}
+
+.radio-container, .checkbox-container{
+  margin-top: 5px;
+  padding-bottom: 0;
+}
+
+.radio, .checkbox, .text-area{
+  display: flex;
+  align-items: center;
+}
+
+.sign-label{
+  margin-top: 23px;
+}
+
+.text-area{
+  margin-top: 7px;
+}
+
+.comments-label{
+  width: 412px;
+}
+
+.comments{
+  width: 412px;
+  font-size: 18px;
+  padding: 8px 0 0 12px;
+}
+
+.submit-button{
+  background-color: white;
+  border-color: rgb(78, 78, 238);
+  border-style: solid;
+  border-width: 1px;
+  color: rgb(78, 78, 238);
+  padding: 15px 175px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  vertical-align: top;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.submit-button:hover{
+  background-color: rgb(78, 78, 238);
+  color: white;
+}
+
+.submit-button:active{
+  opacity: 0.5;
+}

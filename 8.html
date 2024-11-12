@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Test Header
+    </title>
+    <style>
+      .container{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        background-color: rgb(165, 96, 223);
+        font-family: Arial, Helvetica, sans-serif
+      }
+
+      .left{
+        font-weight: bold;
+        color: white;
+        font-size: 15px;
+        width: 100px;
+        text-align: start;
+      }
+
+      .search-bar{
+        padding-left: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+        border-radius: 30px;
+        width: 100%;
+      }
+
+      .middle{
+        flex: 1;
+        padding-left: 30px;
+      }
+
+      .right{
+        width: 150px;
+        text-align: end;
+        margin-left: 50px;
+      }
+
+      .download{
+        margin-right: 7px;
+        background-color: rgb(165, 96, 223);
+        border: 1px solid rgb(255, 255, 255);
+        color: white;
+        font-weight: bold;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        cursor: pointer;
+        transition: all .2s;
+      }
+
+      .download:hover{
+        background-color: rgba(119, 65, 150, 0.986);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.986);
+      }
+
+      .download:active{
+        opacity: .8;
+        background-color: rgb(165, 96, 223);
+        border: 3px solid rgba(255, 255, 255, 0.986);
+      }
+
+      .home{
+        margin-left: 20px;
+        cursor: pointer;
+        transition: all .2s;
+      }
+
+      .home:active{
+        color: rgba(49, 252, 157, 0.986);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <p class="home">Home</p>
+      </div>
+      <div class="middle">
+        <input type="text" class="search-bar" placeholder="Search">
+      </div>
+      <div class="right">
+        <button class="download">Download</button>
+    </div>
+  </body>
+</html>

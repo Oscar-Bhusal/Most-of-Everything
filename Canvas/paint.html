@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paint</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      canvas {
+        border: 2px solid rgb(100, 79, 79);
+        background-color: white;
+        margin: 1px;
+      }
+
+      .options {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        margin: 10px;
+      }
+
+      button {
+        margin: 2px;
+      }
+
+      .choosed {
+        border: 1px solid black;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: red;
+        margin: 0;
+      }
+
+      .size,
+      .colors {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+      }
+
+      .small-btn,
+      .medium-btn,
+      .large-btn {
+        height: 30px;
+        width: 62px;
+        font-weight: bold;
+      }
+
+      .red-btn {
+        background-color: red;
+        color: white;
+        height: 30px;
+        border: 1px solid rgb(99, 67, 67);
+        width: 60px;
+        font-weight: bolder;
+      }
+
+      .green-btn {
+        background-color: green;
+        color: white;
+        height: 30px;
+        border: 1px solid rgb(99, 67, 67);
+        width: 50px;
+        font-weight: bolder;
+      }
+
+      .blue-btn {
+        background-color: blue;
+        color: white;
+        height: 30px;
+        border: 1px solid rgb(99, 67, 67);
+        width: 60px;
+        font-weight: bolder;
+      }
+
+      .yellow-btn {
+        background-color: yellow;
+        color: rgb(0, 0, 0);
+        height: 30px;
+        border: 1px solid rgb(99, 67, 67);
+        width: 60px;
+        font-weight: bolder;
+      }
+
+      .black-btn {
+        background-color: black;
+        color: white;
+        height: 30px;
+        border: 1px solid rgb(99, 67, 67);
+        width: 60px;
+        font-weight: bolder;
+      }
+
+      .white-btn {
+        background-color: white;
+        color: black;
+        height: 30px;
+        border: 1px solid rgb(99, 67, 67);
+        width: 60px;
+        font-weight: bolder;
+      }
+
+      .aqua-btn {
+        background-color: aqua;
+        color: black;
+        height: 30px;
+        border: 1px solid rgb(99, 67, 67);
+        width: 60px;
+        font-weight: bolder;
+      }
+
+      .pink-btn {
+        background-color: pink;
+        color: black;
+        height: 30px;
+        border: 1px solid rgb(99, 67, 67);
+        width: 60px;
+        font-weight: bolder;
+      }
+
+      .purple-btn {
+        background-color: purple;
+        color: white;
+        height: 30px;
+        border: 1px solid rgb(99, 67, 67);
+        width: 60px;
+        font-weight: bolder;
+      }
+
+      .orange-btn {
+        background-color: orange;
+        color: white;
+        height: 30px;
+        border: 1px solid rgb(99, 67, 67);
+        width: 60px;
+        font-weight: bolder;
+      }
+
+      .grey-btn {
+        background-color: grey;
+        color: white;
+        height: 30px;
+        border: 1px solid rgb(99, 67, 67);
+        width: 60px;
+        font-weight: bolder;
+      }
+
+      .indigo-btn {
+        background-color: indigo;
+        color: white;
+        height: 30px;
+        border: 1px solid rgb(99, 67, 67);
+        width: 60px;
+        font-weight: bolder;
+      }
+
+      button {
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+
+      button:active {
+        opacity: 0.5;
+      }
+
+      .reset-btn {
+        height: 30px;
+        width: 80px;
+        font-weight: bolder;
+        border-radius: 10px;
+        border: 1px solid rgb(99, 67, 67);
+        color: rgb(0, 0, 0);
+        background-color: rgb(247, 236, 226);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      @media screen and (max-width: 1055px) {
+        .options {
+          flex-direction: column;
+        }
+      }
+
+      @media screen and (max-width: 960px) {
+        .colors {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <div class="options">
+      <div class="size">
+        <button class="small-btn">Small</button>
+        <button class="medium-btn">Medium</button>
+        <button class="large-btn">Large</button>
+      </div>
+      <div class="choosed"></div>
+      <div class="colors">
+        <div class="colors-1">
+          <button class="red-btn">Red</button>
+          <button class="green-btn">Green</button>
+          <button class="blue-btn">Blue</button>
+          <button class="yellow-btn">Yellow</button>
+          <button class="black-btn">Black</button>
+          <button class="white-btn">White</button>
+        </div>
+        <div class="colors-2">
+          <button class="aqua-btn">Aqua</button>
+          <button class="pink-btn">Pink</button>
+          <button class="purple-btn">Purple</button>
+          <button class="orange-btn">Orange</button>
+          <button class="grey-btn">Grey</button>
+          <button class="indigo-btn">Indigo</button>
+        </div>
+      </div>
+      <div class="screen-buttons">
+        <button class="reset-btn">Reset</button>
+      </div>
+    </div>
+
+    <script src="paint.js"></script>
+  </body>
+</html>

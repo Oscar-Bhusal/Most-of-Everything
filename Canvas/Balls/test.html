@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bouncing Balls Inside a Ring</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: black;
+      }
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+
+      const ballRadius = 10;
+      const gravity = 0.2;
+      const friction = 0.99;
+      const ringRadius = 200;
+      const velocityThreshold = 0.05; // Speed threshold for stopping vibration
+      let balls = [{ x: canvas.width / 2, y: canvas.height / 2, dx: 2, dy: 0 }];
+      let hue = 0;
+
+      // Create a single audio element for bounce sound
+      const bounceSound = new Audio("rubberballbouncing-251948.mp3");  // Updated audio file
+
+      // Function to play the bounce sound only if the ball is moving
+      function playBounceSound(ball) {
+        if (Math.abs(ball.dx) > velocityThreshold || Math.abs(ball.dy) > velocityThreshold) {
+          bounceSound.currentTime = 0; // Reset sound to the beginning
+          bounceSound.play(); // Play the sound
+        }
+      }
+
+      // Draw the green ring
+      function drawRing() {
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, ringRadius, 0, Math.PI * 2);
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 4;
+        ctx.stroke();
+        ctx.closePath();
+      }
+
+      // Draw the ball with changing color
+      function drawBall(ball) {
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ballRadius, 0, Math.PI * 2);
+        ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
+        ctx.fill();
+        ctx.closePath();
+        hue = (hue + 0.1) % 360; // Update the color hue
+      }
+
+      // Update the position of the ball considering gravity and friction
+      function updateBallPosition(ball) {
+        if (Math.abs(ball.dx) < velocityThreshold && Math.abs(ball.dy) < velocityThreshold) {
+          // Only stop the ball if it's still inside the ring and very slow
+          if (Math.sqrt(ball.dx * ball.dx + ball.dy * ball.dy) < velocityThreshold) {
+            ball.dx = 0;
+            ball.dy = 0;
+          }
+        } else {
+          // Apply gravity and friction
+          ball.dy += gravity;
+          ball.dy *= friction;
+          ball.dx *= friction;
+
+          // Update ball's position
+          ball.x += ball.dx;
+          ball.y += ball.dy;
+
+          const distanceFromCenter = Math.sqrt(
+            Math.pow(ball.x - canvas.width / 2, 2) +
+              Math.pow(ball.y - canvas.height / 2, 2)
+          );
+
+          // Ensure ball doesn't clip through the ring boundary
+          if (distanceFromCenter + ballRadius > ringRadius) {
+            const angle = Math.atan2(
+              ball.y - canvas.height / 2,
+              ball.x - canvas.width / 2
+            );
+            const overlap = distanceFromCenter + ballRadius - ringRadius;
+            ball.x -= overlap * Math.cos(angle);
+            ball.y -= overlap * Math.sin(angle);
+
+            // Reflect ball velocity when it hits the ring
+            ball.dx = -ball.dx * 0.9; // Add some damping to make the bounce softer
+            ball.dy = -ball.dy * 0.9; // Same here for vertical speed
+
+            // Play sound when the ball bounces off the ring
+            playBounceSound(ball);
+          }
+
+          // If the ball is on the slope, it should fall toward the center
+          const angleFromCenter = Math.atan2(ball.y - canvas.height / 2, ball.x - canvas.width / 2);
+          const slopeDistance = distanceFromCenter - ringRadius;
+
+          if (Math.abs(slopeDistance) > 1) {
+            // Apply a force pulling the ball back to the center
+            const pullStrength = 0.1; // Adjust strength of pull
+            ball.dx -= pullStrength * Math.cos(angleFromCenter);
+            ball.dy -= pullStrength * Math.sin(angleFromCenter);
+          }
+        }
+      }
+
+      // Simplified collision between two balls (with proper energy transfer)
+      function checkCollision(ball1, ball2) {
+        const dx = ball2.x - ball1.x;
+        const dy = ball2.y - ball1.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < ballRadius * 2) {
+          const angle = Math.atan2(dy, dx);
+          const speed1 = Math.sqrt(ball1.dx * ball1.dx + ball1.dy * ball1.dy);
+          const speed2 = Math.sqrt(ball2.dx * ball2.dx + ball2.dy * ball2.dy);
+          const direction1 = Math.atan2(ball1.dy, ball1.dx);
+          const direction2 = Math.atan2(ball2.dy, ball2.dx);
+
+          // Apply momentum transfer between the balls
+          ball1.dx = speed2 * Math.cos(direction2 - angle);
+          ball1.dy = speed2 * Math.sin(direction2 - angle);
+          ball2.dx = speed1 * Math.cos(direction1 - angle);
+          ball2.dy = speed1 * Math.sin(direction1 - angle);
+
+          // Apply the overlap correction
+          const overlap = ballRadius * 2 - distance;
+          ball1.x -= overlap / 2 * Math.cos(angle);
+          ball1.y -= overlap / 2 * Math.sin(angle);
+          ball2.x += overlap / 2 * Math.cos(angle);
+          ball2.y += overlap / 2 * Math.sin(angle);
+
+          // Play sound when two balls collide
+          playBounceSound(ball1);
+          playBounceSound(ball2);
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawRing();
+        for (let i = 0; i < balls.length; i++) {
+          const ball = balls[i];
+          drawBall(ball);
+          updateBallPosition(ball);
+          for (let j = i + 1; j < balls.length; j++) {
+            checkCollision(ball, balls[j]);
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+
+      // Add a new ball every 5 seconds
+      setInterval(() => {
+        balls.push({
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          dx: Math.random() * 4 - 2,
+          dy: Math.random() * 4 - 2,
+        });
+      }, 5000);
+
+      draw();
+    </script>
+  </body>
+</html>

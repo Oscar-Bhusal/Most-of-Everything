@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* // delete the following line if no text is used
+// edit the line if you wanna use other fonts */
+      @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+      /* // use only the available space inside the 400x400 frame */
+      .frame {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        height: 400px;
+        margin-top: -200px;
+        margin-left: -200px;
+        border-radius: 2px;
+        box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background: #fff;
+        color: #333;
+        font-family: "Open Sans", Helvetica, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: linear-gradient(
+          to bottom left,
+          rgb(255, 160, 160),
+          rgb(175, 6, 6)
+        );
+      }
+
+      .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .center:hover .line-1 {
+        animation: line-1 2s linear 1;
+      }
+
+      .center:hover .line-3 {
+        animation: line-3 2s linear 1;
+      }
+
+      .line-1,
+      .line-2,
+      .line-3 {
+        width: 80px;
+        height: 10px;
+        background-color: white;
+        border-radius: 4px;
+        margin-top: 10px;
+      }
+
+      /* .line-1:hover{
+  animation: line-1 5s linear 1;
+}
+
+.line-3:hover{
+  animation: line-3 5s linear 1;
+} */
+
+      @keyframes line-1 {
+        50% {
+          transform: translate(0px, 20px);
+        }
+
+        100% {
+          transform: translate(0px, 20px);
+        }
+
+        100% {
+          transform: rotate3d(45deg);
+        }
+      }
+
+      @keyframes line-3 {
+        50% {
+          transform: translate(0px, -20px);
+        }
+
+        100% {
+          transform: translate(0px, -20px);
+        }
+
+        100% {
+          transform: rotate(-45deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="center">
+        <div class="line-1"></div>
+        <div class="line-2"></div>
+        <div class="line-3"></div>
+      </div>
+    </div>
+  </body>
+</html>

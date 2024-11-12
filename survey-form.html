@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="survey-form.css">
+  <title>Survey Form</title>
+</head>
+<body>
+  <h1 id="title" class="topic">Survey Form</h1>
+  <p id="description" class="description">Fill ths form right now.</p>
+  <div class="container">
+    <form id="survey-form" class="survey-form">
+      <label for="name" id="name-label" class="label-name">
+        Name
+        <input class="name" type="text" name="name" id="name" placeholder="Enter your name" required>
+      </label>
+  
+      <label for="email" id="email-label" class="label-email">
+        E-mail
+        <input class="email" type="email" name="email" id="email" placeholder="Enter your email" required>
+      </label>
+  
+      <label for="age" id="number-label" class="label-age">
+        Age
+        <input class="age" type="number" name="age" id="number" min="5" max="120" placeholder="Enter your age" required>
+      </label>
+
+      <label for="password" id="password-label" class="label-password">
+        Create a Password
+        <input class="password" type="password" name="password" id="password" placeholder="Create a Password" pattern="[a-z0-9]{8,}" required>
+      </label>
+
+      <label>
+        Which is your favourite fruit?
+        <select id="dropdown">
+          <option>Select your favorite fruit</option>
+          <option>Apple</option>
+          <option>Banana</option>
+        </select>
+      </label>
+
+      <label>
+        Are you a person?
+        <div class="radio-container">
+          <div class="radio"><input type="radio" name="radio" value="being"> Yes </div>
+          <div class="radio"><input type="radio" name="radio" value="being"> No </div>
+          <div class="radio"><input type="radio" name="radio" value="being"> Maybe </div>
+        </div>
+      </label>
+
+      <label class="sign-label">
+        Why are you signing up?
+        <select id="dropdown">
+          <option>Select an option</option>
+          <option>To sign up</option>
+          <option>To waste my time</option>
+          <option>I don't know</option>
+        </select>
+      </label>
+
+      <label>
+        What skills do you have?
+        <div class="checkbox-container">
+          <div class="checkbox"><input type="checkbox"  value="skills"> Nothing </div>
+          <div class="checkbox"><input type="checkbox"  value="skills"> Walking </div>
+          <div class="checkbox"><input type="checkbox"  value="skills"> Breathing </div>
+          <div class="checkbox"><input type="checkbox"  value="skills"> Slepping </div>
+          <div class="checkbox"><input type="checkbox"  value="skills"> Eating </div>
+          <div class="checkbox"><input type="checkbox"  value="skills"> Dancing </div>
+          <div class="checkbox"><input type="checkbox"  value="skills"> Dying </div>
+        </div>
+      </label>
+
+      <label class="comments-label">
+        Any Comments or Suggestions!
+        <div class="text-area">
+          <textarea class="comments" name="comments" id="comments" cols="53" rows="6.8" placeholder="Enter your comments..."></textarea>
+        </div>
+      </label>
+      <button id="submit" type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      p{
+        font-family: arial;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      
+      .profile-info{
+        width: 200px;
+        box-shadow: 1px 1px 5px rgb(0, 0, 0);
+        display: inline-block;
+        margin-left: 15px;
+        margin-bottom: 15px;
+      }
+
+      .profile-picture{
+        width: 200px;
+        height: 200px
+      }
+
+      .picture{
+        width: 100%;
+        height: 100%;
+      }
+
+      .profile-stats{
+        width: 200px;
+      }
+
+      .friend-picture{
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        border-radius: 15px;
+        vertical-align: middle;
+        margin-bottom: 7px;
+        margin-left: 7px;
+      }
+
+      .div-friends{
+        width: 200px;
+      }
+
+      .friends{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 13px;
+        color: grey;
+        margin-left: 5px;
+        margin-bottom: 9px;
+      }
+
+      .name{
+        font-weight: bolder;
+        margin-top: 10px;
+        margin-bottom: 9px;
+        margin-left: 7px;
+      }
+
+      button{
+        background-color: rgb(78, 78, 238);
+        color: white;
+        border: none;
+        margin: 7px;
+        margin-top: 2px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 5px;
+        transition: all .2s;
+        cursor: pointer;
+      }
+
+      button:active{
+        opacity: .6;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="profile-info">
+      <div class="profile-picture">
+        <img class="picture" src="cat.jpg">
+      </div>
+      <div class="profile-stats">
+        <p class="name">Oliver</p>
+        <div class="div-friends">
+            <img class="friend-picture" src="dog2.jpg">
+            <p class="friends">2 mutual friends</p>
+        </div>
+        <button>Add Friend</button>
+      </div>
+    </div>
+
+    <div class="profile-info">
+      <div class="profile-picture">
+        <img class="picture" src="cat2.jpg">
+      </div>
+      <div class="profile-stats">
+        <p class="name">Mimi</p>
+        <div class="div-friends">
+            <img class="friend-picture" src="dog2.jpg">
+            <p class="friends">3 mutual friends</p>
+        </div>
+        <button>Add Friend</button>
+      </div>
+    </div>
+
+    <div class="profile-info">
+      <div class="profile-picture">
+        <img class="picture" src="dog.jpg">
+      </div>
+      <div class="profile-stats">
+        <p class="name">Rex</p>
+        <div class="div-friends">
+            <img class="friend-picture" src="dog2.jpg">
+            <p class="friends">4 mutual friends</p>
+        </div>
+        <button>Add Friend</button>
+      </div>
+    </div>
+  </body>
+</html>

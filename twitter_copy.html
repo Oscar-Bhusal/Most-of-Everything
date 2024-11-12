@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+      body{
+        font-family: roboto;
+      }
+
+      p{
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .post{
+        width: 410px;
+      }
+
+      .text-post{
+        display: flex;
+      }
+
+      .profile-picture{
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        object-fit: cover;
+      }
+
+      .picture{
+        margin-right: 10px;
+        padding-top: 15px;
+        vertical-align: middle;
+        padding-left: 5px;
+      }
+
+      .name{
+        font-weight: bold;
+        font-size: 16px;
+        margin-top: 15px;
+        margin-bottom: 8px;
+      }
+
+      .holder{
+        font-size: 16px;
+        color: grey;
+        font-weight: 100;
+      }
+
+      .message{
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 22px;
+      }
+
+      .attachement{
+        display: flex;
+        border: 2px solid rgb(222, 222, 222);
+        margin-left: 60px;
+        margin-top: 5px;
+        border-radius: 17px;
+        height: 90px;
+      }
+
+      .thumbnail-grey{
+        width: 150px;
+        height: 90px;
+        object-fit: cover;
+        background-color: rgb(222, 222, 222);
+        border-radius: 9px 0 0 9px;
+        margin: 0;
+      }
+
+      .link{
+        margin-left: 14px;
+        margin-top: 12px;
+      }
+
+      .youtube{
+        margin-bottom: 4px;
+        color: rgb(100, 100, 100);
+      }
+
+      .youtube-title{
+        line-height: 22px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <div class="text-post">
+          <div class="picture">
+            <img class="profile-picture" src="cat.jpg">
+          </div>
+          <div class="post-info">
+            <p class="name">supersimple.dev <span class="holder">@SuperSimpleDev</span></p>
+            <p class="message">What is backend web development? A complete overview. New video is up!</p>
+          </div>
+        </div>
+        <div class="attachement">
+          <div class="thumbnail-grey">
+
+          </div>
+          <div class="link">
+            <p class="youtube">youtube.com</p>
+            <p class="youtube-title">Backend web development - a complete overview(2021)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
